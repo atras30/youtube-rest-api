@@ -37,4 +37,10 @@ class AuthenticationController extends Controller {
       "message" => "Successfully logged out."
     ], Response::HTTP_OK);
   }
+
+  public function getUser() {
+    return response()->json([
+      "user" => auth()->user()
+    ], Response::HTTP_OK);
+  }
 }
