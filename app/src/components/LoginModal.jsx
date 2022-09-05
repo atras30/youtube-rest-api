@@ -15,7 +15,9 @@ export default function LoginModal() {
     const email = inputEmail.current.value;
     const password = inputPassword.current.value;
 
-    await axios.get("http://localhost:8000/sanctum/csrf-cookie");
+    await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
+      withCredentials: true
+    });
 
     const loginPromise = axios.post("http://localhost:8000/api/auth/login", {
       email: email,
